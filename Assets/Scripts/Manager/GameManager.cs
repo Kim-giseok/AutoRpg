@@ -4,9 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    static GameManager instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = new GameObject("GameManager").AddComponent<GameManager>();
+            return instance;
+        }
+    }
 
-    public Player player { get; private set; }
+    public Player player;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()

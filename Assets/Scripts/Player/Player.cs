@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        GameManager.Instance.player = this;
         stat = GetComponent<PlayerStat>();
         stateMachine = new PlayerStateMachine(this);
     }
