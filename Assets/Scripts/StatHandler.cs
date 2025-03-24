@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatHandler : MonoBehaviour
 {
     public StatData data;
-    public Dictionary<StatType, float> curStats { get; private set; } = new Dictionary<StatType, float>();
+    Dictionary<StatType, float> curStats = new Dictionary<StatType, float>();
 
     private void Awake()
     {
@@ -18,5 +18,10 @@ public class StatHandler : MonoBehaviour
         {
             curStats[entry.statType] = entry.baseValue;
         }
+    }
+
+    public float Get(StatType key)
+    {
+        return curStats.ContainsKey(key) ? curStats[key] : 0;
     }
 }

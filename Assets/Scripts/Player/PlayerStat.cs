@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
 public class GageStat
 {
     [field: SerializeField] public float MaxStat { get; private set; }
@@ -17,20 +16,29 @@ public class GageStat
             ui?.ChangeAmount(curStat / MaxStat);
         }
     }
-    public GageUI ui;
+    public BaseUI ui;
+
+    public GageStat (float maxStat, float curStat = float.MaxValue, BaseUI ui = null)
+    {
+        this.ui = ui;
+        MaxStat = maxStat;
+        CurStat = curStat;
+    }
 }
 
 public class PlayerStat : MonoBehaviour
 {
+    [SerializeField] StatHandler statHandler;
     [SerializeField] GageStat hp, mp, exp;
     [SerializeField] float level, gold, dia;
-    public TxtUI levelUI, goldUI, diaUI;
+    public BaseUI hpUI, mpUI, expUI, levelUI, goldUI, diaUI;
 
-    private void Start()
+    void Awake()
     {
-        hp.CurStat = hp.MaxStat;
-        mp.CurStat = mp.MaxStat;
-        exp.CurStat = 0;
+        statHandler = GetComponent<StatHandler>();
+        hp = new GageStat(statHandler.Get(StatType.Hp), ui: hpUI);
+        mp = new GageStat(statHandler.Get(StatType.Mp), ui: mpUI);
+        exp  = new GageStat(statHandler.Get(StatType.exp), 0, expUI);
     }
 
     public void Damage(float damage)
@@ -67,22 +75,4 @@ public class PlayerStat : MonoBehaviour
         this.dia += dia;
         diaUI?.ChangeAmount(this.dia);
     }
-
-#if UNITY_EDITOR
-    void OnGUI()
-    {
-        if (GUILayout.Button("10데미지", GUILayout.Width(100), GUILayout.Height(100)))
-        {
-            Damage(10);
-        }
-        if (GUILayout.Button("10경험치", GUILayout.Width(100), GUILayout.Height(100)))
-        {
-            GetExp(10);
-        }
-        if (GUILayout.Button("10골드추가", GUILayout.Width(100), GUILayout.Height(100)))
-        {
-            GetGold(10);
-        }
-    }
-#endif
 }

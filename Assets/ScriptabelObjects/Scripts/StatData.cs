@@ -6,6 +6,7 @@ public enum StatType
 {
     Hp,
     Mp,
+    exp
 }
 
 [CreateAssetMenu(fileName = "New StatData", menuName = "Stats/Chracter Stats")]
