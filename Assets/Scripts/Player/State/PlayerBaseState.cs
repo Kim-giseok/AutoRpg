@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerBaseState : IState
 {
+    PlayerStateMachine stateMachine;
+
+    public PlayerBaseState(PlayerStateMachine stateMachine)
+    {
+        this.stateMachine = stateMachine;
+    }
+
     public virtual void Enter()
     {
     }

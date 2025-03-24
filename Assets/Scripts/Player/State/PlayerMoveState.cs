@@ -4,4 +4,7 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerBaseState
 {
+    public PlayerMoveState(PlayerStateMachine stateMachine) : base(stateMachine)
+    {
+    }
 }
