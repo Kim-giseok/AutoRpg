@@ -14,7 +14,7 @@ public class GageStat
         set
         {
             curStat = Mathf.Clamp(value, 0, MaxStat);
-            ui.ChangeAmount(curStat / MaxStat);
+            ui?.ChangeAmount(curStat / MaxStat);
         }
     }
     public GageUI ui;
@@ -49,7 +49,7 @@ public class PlayerStat : MonoBehaviour
         if (gainedExp >= this.exp.MaxStat)
         {
             level++;
-            levelUI.ChangeAmount(level);
+            levelUI?.ChangeAmount(level);
             this.exp.CurStat = gainedExp - this.exp.MaxStat;
         }
         else
@@ -59,13 +59,13 @@ public class PlayerStat : MonoBehaviour
     public void GetGold(float gold)
     {
         this.gold += gold;
-        goldUI.ChangeAmount(this.gold);
+        goldUI?.ChangeAmount(this.gold);
     }
 
     public void GetDia(float dia)
     {
         this.dia += dia;
-        diaUI.ChangeAmount(this.dia);
+        diaUI?.ChangeAmount(this.dia);
     }
 
 #if UNITY_EDITOR
