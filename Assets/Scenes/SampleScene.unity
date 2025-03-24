@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2484,6 +2484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1787843738}
+  - component: {fileID: 1787843739}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2507,6 +2508,36 @@ Transform:
   - {fileID: 1625631923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1787843739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787843737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb413b82ce4803f4f8f67c25948fce41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp:
+    <MaxStat>k__BackingField: 100
+    curStat: 0
+    ui: {fileID: 788213942}
+  mp:
+    <MaxStat>k__BackingField: 50
+    curStat: 0
+    ui: {fileID: 1696423265}
+  exp:
+    <MaxStat>k__BackingField: 100
+    curStat: 0
+    ui: {fileID: 1451776904}
+  level: 1
+  gold: 0
+  dia: 0
+  levelUI: {fileID: 1451776903}
+  goldUI: {fileID: 927940382}
+  diaUI: {fileID: 1866126322}
 --- !u!1 &1866126320
 GameObject:
   m_ObjectHideFlags: 0
