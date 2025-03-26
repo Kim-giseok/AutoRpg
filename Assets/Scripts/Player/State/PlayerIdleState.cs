@@ -12,7 +12,7 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.Update();
 
-        if (CheckRemainedEnemy())//적이 남아있으면
+        if (CheckEnemyRemained())//적이 남아있으면
         {
             //가까운 적 목표로 삼기
             stateMachine.ChangeState(stateMachine.attackState);
@@ -23,7 +23,7 @@ public class PlayerIdleState : PlayerBaseState
         }
     }
 
-    bool CheckRemainedEnemy()
+    bool CheckEnemyRemained()
     {
         return true;
     }
