@@ -25,6 +25,23 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-        
+        Move();
+    }
+
+    void Move()
+    {
+        Vector3 moveDir = GetDir();
+
+        Move(moveDir);
+    }
+
+    Vector3 GetDir()
+    {
+        return (stateMachine.Target.transform.position - stateMachine.player.transform.position).normalized;
+    }
+
+    void Move(Vector3 dir)
+    {
+        stateMachine.player.controller.Move(dir * Time.deltaTime);
     }
 }

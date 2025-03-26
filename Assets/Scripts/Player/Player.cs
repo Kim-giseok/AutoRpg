@@ -6,11 +6,13 @@ public class Player : MonoBehaviour
 {
     public PlayerStat stat;
     PlayerStateMachine stateMachine;
+    public CharacterController controller { get; private set; }
 
     void Awake()
     {
         GameManager.Instance.player = this;
         stat = GetComponent<PlayerStat>();
+        controller = GetComponent<CharacterController>();
         stateMachine = new PlayerStateMachine(this);
     }
 

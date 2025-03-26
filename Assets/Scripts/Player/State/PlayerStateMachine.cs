@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
 {
-    Player player;
+    public Player player { get; private set; }
+    public GameObject Target;
 
     public PlayerIdleState idleState { get; }
     public PlayerAttackState attackState { get; }
