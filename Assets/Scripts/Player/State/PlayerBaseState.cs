@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBaseState : IState
 {
-    PlayerStateMachine stateMachine;
+    protected PlayerStateMachine stateMachine;
 
     public PlayerBaseState(PlayerStateMachine stateMachine)
     {
